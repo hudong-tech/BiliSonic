@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>视频下载与音频转换工具 - 下载管理</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <!-- Mac 风格窗口标题栏 -->
+    <div class="title-bar">
+        <div class="title-bar-controls">
+            <div class="window-control close-btn"></div>
+            <div class="window-control minimize-btn"></div>
+            <div class="window-control maximize-btn"></div>
+        </div>
+        <div class="title-bar-title">视频下载与音频转换工具 - 下载管理</div>
+        <div style="width: 60px;"></div> <!-- 平衡标题栏布局 -->
+    </div>
+
+    <!-- 主内容区 -->
+    <div class="main-content" style="height: calc(100vh - 38px);">
+        <div class="content-header">
+            <div class="text-lg font-semibold">下载管理</div>
+            <div class="flex items-center gap-3">
+                <button class="btn btn-primary">
+                    <i class="fas fa-plus mr-2"></i>新建下载
+                </button>
+                <div class="relative">
+                    <button class="btn-icon tooltip">
+                        <i class="fas fa-filter"></i>
+                        <span class="tooltip-text">筛选</span>
+                    </button>
+                </div>
+                <div class="relative">
+                    <button class="btn-icon tooltip">
+                        <i class="fas fa-sort"></i>
+                        <span class="tooltip-text">排序</span>
+                    </button>
+                </div>
+                <div class="flex border rounded overflow-hidden">
+                    <button class="btn-icon bg-bg-tertiary">
+                        <i class="fas fa-list"></i>
+                    </button>
+                    <button class="btn-icon">
+                        <i class="fas fa-th-large"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="content-body">
+            <!-- 拖放区域 -->
+            <div class="border-2 border-dashed border-border-color rounded-lg p-8 mb-6 text-center">
+                <i class="fas fa-cloud-download-alt text-4xl text-text-secondary mb-3"></i>
+                <p class="text-text-secondary mb-2">拖放视频链接或文件到此处</p>
+                <p class="text-sm text-text-secondary">支持 YouTube、B站 链接或本地视频文件</p>
+            </div>
+            
+            <!-- 下载任务列表 -->
+            <div class="mb-4">
+                <div class="flex justify-between items-center mb-3">
+                    <h3 class="font-semibold">进行中 (3)</h3>
+                    <button class="btn-icon">
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                </div>
+                
+                <div class="list-item">
+                    <div class="flex items-center mr-3">
+                        <input type="checkbox" class="mr-3">
+                        <div class="w-12 h-12 bg-gray-700 rounded flex-shrink-0 overflow-hidden">
+                            <img src="https://i.ytimg.com/vi/dQw4w9WgXcQ/mqdefault.jpg" alt="视频缩略图">
+                        </div>
+                    </div>
+                    <div class="flex-grow mr-4">
+                        <div class="font-medium mb-1 truncate">如何高效学习编程 - 专业程序员的建议与技巧</div>
+                        <div class="text-sm text-text-secondary">YouTube | 15:42 | 720p</div>
+                        <div class="flex items-center text-xs text-text-secondary mt-1">
+                            <span class="mr-3">128.5MB / 172.3MB</span>
+                            <span class="mr-3">3.2MB/s</span>
+                            <span>预计剩余时间: 00:45</span>
+                        </div>
+                        <div class="progress-bar mt-2">
+                            <div class="progress-bar-fill" style="width: 75%;"></div>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="text-sm text-text-secondary">75%</span>
+                        <button class="btn-icon">
+                            <i class="fas fa-pause"></i>
+                        </button>
+                        <button class="btn-icon">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="list-item">
+                    <div class="flex items-center mr-3">
+                        <input type="checkbox" class="mr-3">
+                        <div class="w-12 h-12 bg-gray-700 rounded flex-shrink-0 overflow-hidden">
+                            <img src="https://i.ytimg.com/vi/UfQHEpf2q8k/mqdefault.jpg" alt="视频缩略图">
+                        </div>
+                    </div>
+                    <div class="flex-grow mr-4">
+                        <div class="font-medium mb-1 truncate">Mac系统使用技巧与隐藏功能 - 提高工作效率的20个秘诀</div>
+                        <div class="text-sm text-text-secondary">YouTube | 28:35 | 1080p</div>
+                        <div class="flex items-center text-xs text-text-secondary mt-1">
+                            <span class="mr-3">156.8MB / 348.2MB</span>
+                            <span class="mr-3">0.0MB/s</span>
+                            <span>已暂停</span>
+                        </div>
+                        <div class="progress-bar mt-2">
+                            <div class="progress-bar-fill warning" style="width: 45%;"></div>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="text-sm text-warning-color">暂停</span>
+                        <button class="btn-icon">
+                            <i class="fas fa-play"></i>
+                        </button>
+                        <button class="btn-icon">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="list-item">
+                    <div class="flex items-center mr-3">
+                        <input type="checkbox" class="mr-3">
+                        <div class="w-12 h-12 bg-gray-700 rounded flex-shrink-0 overflow-hidden">
+                            <img src="https://i.ytimg.com/vi/jNQXAC9IVRw/mqdefault.jpg" alt="视频缩略图">
+                        </div>
+                    </div>
+                    <div class="flex-grow mr-4">
+                        <div class="font-medium mb-1 truncate">电子音乐制作教程 - 从零开始学习音频处理与混音技术</div>
+                        <div class="text-sm text-text-secondary">B站 | 1:05:22 | 720p</div>
+                        <div class="flex items-center text-xs text-text-secondary mt-1">
+                            <span class="mr-3">98.2MB / 426.7MB</span>
+                            <span class="mr-3">0.0MB/s</span>
+                            <span class="text-error-color">网络连接错误</span>
+                        </div>
+                        <div class="progress-bar mt-2">
+                            <div class="progress-bar-fill error" style="width: 23%;"></div>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="text-sm text-error-color">错误</span>
+                        <button class="btn-icon">
+                            <i class="fas fa-redo"></i>
+                        </button>
+                        <button class="btn-icon">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div>
+                <div class="flex justify-between items-center mb-3">
+                    <h3 class="font-semibold">已完成 (2)</h3>
+                    <button class="btn-icon">
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                </div>
+                
+                <div class="list-item">
+                    <div class="flex items-center mr-3">
+                        <input type="checkbox" class="mr-3">
+                        <div class="w-12 h-12 bg-gray-700 rounded flex-shrink-0 overflow-hidden">
+                            <img src="https://i.ytimg.com/vi/9bZkp7q19f0/mqdefault.jpg" alt="视频缩略图">
+                        </div>
+                    </div>
+                    <div class="flex-grow mr-4">
+                        <div class="font-medium mb-1 truncate">2023年最热门的10首流行歌曲 - 完整混音版</div>
+                        <div class="text-sm text-text-secondary">B站 | 42:18 | 1080p</div>
+                        <div class="flex items-center text-xs text-text-secondary mt-1">
+                            <span class="mr-3">385.2MB</span>
+                            <span class="mr-3">完成于 2023-06-15 14:32</span>
+                        </div>
+                        <div class="progress-bar mt-2">
+                            <div class="progress-bar-fill success" style="width: 100%;"></div>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <button class="btn-icon">
+                            <i class="fas fa-folder-open"></i>
+                        </button>
+                        <button class="btn-icon">
+                            <i class="fas fa-music"></i>
+                        </button>
+                        <div class="relative">
+                            <button class="btn-icon">
+                                <i class="fas fa-ellipsis-v"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="list-item">
+                    <div class="flex items-center mr-3">
+                        <input type="checkbox" class="mr-3">
+                        <div class="w-12 h-12 bg-gray-700 rounded flex-shrink-0 overflow-hidden">
+                            <img src="https://i.ytimg.com/vi/kJQP7kiw5Fk/mqdefault.jpg" alt="视频缩略图">
+                        </div>
+                    </div>
+                    <div class="flex-grow mr-4">
+                        <div class="font-medium mb-1 truncate">摄影入门教程 - 从零开始学习摄影技巧</div>
+                        <div class="text-sm text-text-secondary">YouTube | 32:45 | 1080p</div>
+                        <div class="flex items-center text-xs text-text-secondary mt-1">
+                            <span class="mr-3">256.7MB</span>
+                            <span class="mr-3">完成于 2023-06-14 09:15</span>
+                        </div>
+                        <div class="progress-bar mt-2">
+                            <div class="progress-bar-fill success" style="width: 100%;"></div>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <button class="btn-icon">
+                            <i class="fas fa-folder-open"></i>
+                        </button>
+                        <button class="btn-icon">
+                            <i class="fas fa-music"></i>
+                        </button>
+                        <div class="relative">
+                            <button class="btn-icon">
+                                <i class="fas fa-ellipsis-v"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="status-bar">
+            <div>活动任务: 3 | 已完成: 2 | 错误: 1</div>
+            <div class="flex-grow"></div>
+            <div>总下载速度: 3.2MB/s | 已下载: 1.02GB</div>
+        </div>
+    </div>
+</body>
+</html> 

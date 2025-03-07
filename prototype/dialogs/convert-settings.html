@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>转换设置</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <div class="dialog-overlay">
+        <div class="dialog">
+            <div class="dialog-header">
+                <div class="dialog-title">音频转换设置</div>
+                <div class="dialog-close">
+                    <i class="fas fa-times"></i>
+                </div>
+            </div>
+            
+            <div class="dialog-body">
+                <div class="mb-4">
+                    <div class="flex items-start">
+                        <div class="w-12 h-12 bg-gray-700 rounded flex-shrink-0 overflow-hidden flex items-center justify-center mr-3">
+                            <i class="fas fa-file-video text-2xl text-text-secondary"></i>
+                        </div>
+                        <div>
+                            <div class="font-medium mb-1">如何高效学习编程 - 专业程序员的建议与技巧.mp4</div>
+                            <div class="text-sm text-text-secondary">MP4 | 15:42 | 172.3MB</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="form-group">
+                        <label class="form-label">输出格式</label>
+                        <select class="form-select">
+                            <option selected>MP3</option>
+                            <option>AAC</option>
+                            <option>FLAC</option>
+                            <option>WAV</option>
+                            <option>OGG</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">音频质量</label>
+                        <select class="form-select">
+                            <option selected>320kbps (高质量)</option>
+                            <option>256kbps</option>
+                            <option>192kbps (标准质量)</option>
+                            <option>128kbps (低质量)</option>
+                            <option>可变比特率 (VBR)</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">保存位置</label>
+                    <div class="flex">
+                        <input type="text" class="form-input rounded-r-none" value="/Users/username/Music" readonly>
+                        <button class="btn btn-secondary rounded-l-none">浏览</button>
+                    </div>
+                </div>
+                
+                <div class="mt-4">
+                    <div class="flex items-center justify-between mb-2">
+                        <div class="font-medium">高级设置</div>
+                        <button class="text-accent-color text-sm">
+                            <i class="fas fa-chevron-down mr-1"></i>展开
+                        </button>
+                    </div>
+                    
+                    <div class="bg-bg-secondary p-4 rounded">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="form-group">
+                                <label class="form-label">采样率</label>
+                                <select class="form-select">
+                                    <option>原始采样率</option>
+                                    <option selected>44.1 kHz (CD质量)</option>
+                                    <option>48 kHz (DVD质量)</option>
+                                    <option>96 kHz (高清质量)</option>
+                                    <option>32 kHz (低质量)</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label">声道</label>
+                                <select class="form-select">
+                                    <option>原始声道</option>
+                                    <option selected>立体声</option>
+                                    <option>单声道</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label">音量调整</label>
+                                <div class="flex items-center">
+                                    <input type="range" min="0" max="200" value="100" class="w-full mr-2">
+                                    <span>100%</span>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label">音频编码器</label>
+                                <select class="form-select">
+                                    <option selected>LAME (推荐)</option>
+                                    <option>FFmpeg 内置</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">ID3 标签</label>
+                            <div class="grid grid-cols-2 gap-2">
+                                <div>
+                                    <label class="text-xs text-text-secondary">标题</label>
+                                    <input type="text" class="form-input" value="如何高效学习编程">
+                                </div>
+                                <div>
+                                    <label class="text-xs text-text-secondary">艺术家</label>
+                                    <input type="text" class="form-input" value="编程学习频道">
+                                </div>
+                                <div>
+                                    <label class="text-xs text-text-secondary">专辑</label>
+                                    <input type="text" class="form-input" value="编程教程">
+                                </div>
+                                <div>
+                                    <label class="text-xs text-text-secondary">年份</label>
+                                    <input type="text" class="form-input" value="2023">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center mt-2">
+                            <input type="checkbox" id="extract-cover" class="mr-2" checked>
+                            <label for="extract-cover" class="text-sm">从视频中提取封面图片</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="flex items-center mt-4">
+                    <input type="checkbox" id="apply-to-all" class="mr-2">
+                    <label for="apply-to-all" class="text-sm">应用到所有选中的文件</label>
+                    <input type="checkbox" id="save-as-default" class="mr-2 ml-4">
+                    <label for="save-as-default" class="text-sm">保存为默认设置</label>
+                </div>
+            </div>
+            
+            <div class="dialog-footer">
+                <button class="btn btn-secondary">取消</button>
+                <button class="btn btn-primary">开始转换</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 

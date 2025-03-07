@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>视频下载与音频转换工具 - 历史记录</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <!-- Mac 风格窗口标题栏 -->
+    <div class="title-bar">
+        <div class="title-bar-controls">
+            <div class="window-control close-btn"></div>
+            <div class="window-control minimize-btn"></div>
+            <div class="window-control maximize-btn"></div>
+        </div>
+        <div class="title-bar-title">视频下载与音频转换工具 - 历史记录</div>
+        <div style="width: 60px;"></div> <!-- 平衡标题栏布局 -->
+    </div>
+
+    <!-- 主内容区 -->
+    <div class="main-content" style="height: calc(100vh - 38px);">
+        <div class="content-header">
+            <div class="text-lg font-semibold">历史记录</div>
+            <div class="flex items-center gap-3">
+                <div class="relative">
+                    <input type="text" class="form-input h-9 pl-9" placeholder="搜索历史记录...">
+                    <i class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-text-secondary"></i>
+                </div>
+                <div class="relative">
+                    <button class="btn-icon tooltip">
+                        <i class="fas fa-filter"></i>
+                        <span class="tooltip-text">筛选</span>
+                    </button>
+                </div>
+                <div class="relative">
+                    <button class="btn-icon tooltip">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span class="tooltip-text">日期范围</span>
+                    </button>
+                </div>
+                <button class="btn btn-secondary">
+                    <i class="fas fa-trash-alt mr-2"></i>清除历史
+                </button>
+            </div>
+        </div>
+        
+        <div class="content-body">
+            <!-- 历史记录标签页 -->
+            <div class="flex border-b border-border-color mb-4">
+                <button class="px-4 py-2 font-medium border-b-2 border-accent-color text-accent-color">全部</button>
+                <button class="px-4 py-2 font-medium text-text-secondary">下载</button>
+                <button class="px-4 py-2 font-medium text-text-secondary">转换</button>
+            </div>
+            
+            <!-- 历史记录列表 -->
+            <div class="mb-4">
+                <div class="flex justify-between items-center mb-3">
+                    <h3 class="font-semibold">今天</h3>
+                </div>
+                
+                <div class="list-item">
+                    <div class="flex items-center mr-3">
+                        <div class="w-12 h-12 bg-gray-700 rounded flex-shrink-0 overflow-hidden">
+                            <img src="https://i.ytimg.com/vi/dQw4w9WgXcQ/mqdefault.jpg" alt="视频缩略图">
+                        </div>
+                    </div>
+                    <div class="flex-grow mr-4">
+                        <div class="font-medium mb-1 truncate">如何高效学习编程 - 专业程序员的建议与技巧</div>
+                        <div class="text-sm text-text-secondary">下载 | YouTube | 15:42 | 172.3MB</div>
+                        <div class="flex items-center text-xs text-text-secondary mt-1">
+                            <span class="mr-3">完成于 今天 15:32</span>
+                            <span class="text-success-color">成功</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <button class="btn-icon tooltip">
+                            <i class="fas fa-folder-open"></i>
+                            <span class="tooltip-text">打开文件夹</span>
+                        </button>
+                        <button class="btn-icon tooltip">
+                            <i class="fas fa-redo"></i>
+                            <span class="tooltip-text">重新下载</span>
+                        </button>
+                        <div class="relative">
+                            <button class="btn-icon">
+                                <i class="fas fa-ellipsis-v"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="list-item">
+                    <div class="flex items-center mr-3">
+                        <div class="w-12 h-12 bg-gray-700 rounded flex-shrink-0 overflow-hidden flex items-center justify-center">
+                            <i class="fas fa-file-audio text-2xl text-accent-color"></i>
+                        </div>
+                    </div>
+                    <div class="flex-grow mr-4">
+                        <div class="font-medium mb-1 truncate">如何高效学习编程 - 专业程序员的建议与技巧.mp3</div>
+                        <div class="text-sm text-text-secondary">转换 | MP4 → MP3 | 15:42 | 38MB</div>
+                        <div class="flex items-center text-xs text-text-secondary mt-1">
+                            <span class="mr-3">完成于 今天 15:35</span>
+                            <span class="text-success-color">成功</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <button class="btn-icon tooltip">
+                            <i class="fas fa-play"></i>
+                            <span class="tooltip-text">播放</span>
+                        </button>
+                        <button class="btn-icon tooltip">
+                            <i class="fas fa-folder-open"></i>
+                            <span class="tooltip-text">打开文件夹</span>
+                        </button>
+                        <div class="relative">
+                            <button class="btn-icon">
+                                <i class="fas fa-ellipsis-v"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mb-4">
+                <div class="flex justify-between items-center mb-3">
+                    <h3 class="font-semibold">昨天</h3>
+                </div>
+                
+                <div class="list-item">
+                    <div class="flex items-center mr-3">
+                        <div class="w-12 h-12 bg-gray-700 rounded flex-shrink-0 overflow-hidden">
+                            <img src="https://i.ytimg.com/vi/9bZkp7q19f0/mqdefault.jpg" alt="视频缩略图">
+                        </div>
+                    </div>
+                    <div class="flex-grow mr-4">
+                        <div class="font-medium mb-1 truncate">2023年最热门的10首流行歌曲 - 完整混音版</div>
+                        <div class="text-sm text-text-secondary">下载 | B站 | 42:18 | 385.2MB</div>
+                        <div class="flex items-center text-xs text-text-secondary mt-1">
+                            <span class="mr-3">完成于 昨天 14:32</span>
+                            <span class="text-success-color">成功</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <button class="btn-icon tooltip">
+                            <i class="fas fa-folder-open"></i>
+                            <span class="tooltip-text">打开文件夹</span>
+                        </button>
+                        <button class="btn-icon tooltip">
+                            <i class="fas fa-redo"></i>
+                            <span class="tooltip-text">重新下载</span>
+                        </button>
+                        <div class="relative">
+                            <button class="btn-icon">
+                                <i class="fas fa-ellipsis-v"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="list-item">
+                    <div class="flex items-center mr-3">
+                        <div class="w-12 h-12 bg-gray-700 rounded flex-shrink-0 overflow-hidden">
+                            <img src="https://i.ytimg.com/vi/kJQP7kiw5Fk/mqdefault.jpg" alt="视频缩略图">
+                        </div>
+                    </div>
+                    <div class="flex-grow mr-4">
+                        <div class="font-medium mb-1 truncate">摄影入门教程 - 从零开始学习摄影技巧</div>
+                        <div class="text-sm text-text-secondary">下载 | YouTube | 32:45 | 256.7MB</div>
+                        <div class="flex items-center text-xs text-text-secondary mt-1">
+                            <span class="mr-3">完成于 昨天 09:15</span>
+                            <span class="text-success-color">成功</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <button class="btn-icon tooltip">
+                            <i class="fas fa-folder-open"></i>
+                            <span class="tooltip-text">打开文件夹</span>
+                        </button>
+                        <button class="btn-icon tooltip">
+                            <i class="fas fa-redo"></i>
+                            <span class="tooltip-text">重新下载</span>
+                        </button>
+                        <div class="relative">
+                            <button class="btn-icon">
+                                <i class="fas fa-ellipsis-v"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div>
+                <div class="flex justify-between items-center mb-3">
+                    <h3 class="font-semibold">本周</h3>
+                </div>
+                
+                <div class="list-item">
+                    <div class="flex items-center mr-3">
+                        <div class="w-12 h-12 bg-gray-700 rounded flex-shrink-0 overflow-hidden">
+                            <img src="https://i.ytimg.com/vi/UfQHEpf2q8k/mqdefault.jpg" alt="视频缩略图">
+                        </div>
+                    </div>
+                    <div class="flex-grow mr-4">
+                        <div class="font-medium mb-1 truncate">Mac系统使用技巧与隐藏功能 - 提高工作效率的20个秘诀</div>
+                        <div class="text-sm text-text-secondary">下载 | YouTube | 28:35 | 348.2MB</div>
+                        <div class="flex items-center text-xs text-text-secondary mt-1">
+                            <span class="mr-3">完成于 2023-06-12 11:23</span>
+                            <span class="text-success-color">成功</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <button class="btn-icon tooltip">
+                            <i class="fas fa-folder-open"></i>
+                            <span class="tooltip-text">打开文件夹</span>
+                        </button>
+                        <button class="btn-icon tooltip">
+                            <i class="fas fa-redo"></i>
+                            <span class="tooltip-text">重新下载</span>
+                        </button>
+                        <div class="relative">
+                            <button class="btn-icon">
+                                <i class="fas fa-ellipsis-v"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="list-item">
+                    <div class="flex items-center mr-3">
+                        <div class="w-12 h-12 bg-gray-700 rounded flex-shrink-0 overflow-hidden flex items-center justify-center">
+                            <i class="fas fa-file-audio text-2xl text-accent-color"></i>
+                        </div>
+                    </div>
+                    <div class="flex-grow mr-4">
+                        <div class="font-medium mb-1 truncate">Mac系统使用技巧与隐藏功能.mp3</div>
+                        <div class="text-sm text-text-secondary">转换 | MP4 → MP3 | 28:35 | 68MB</div>
+                        <div class="flex items-center text-xs text-text-secondary mt-1">
+                            <span class="mr-3">完成于 2023-06-12 11:30</span>
+                            <span class="text-success-color">成功</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <button class="btn-icon tooltip">
+                            <i class="fas fa-play"></i>
+                            <span class="tooltip-text">播放</span>
+                        </button>
+                        <button class="btn-icon tooltip">
+                            <i class="fas fa-folder-open"></i>
+                            <span class="tooltip-text">打开文件夹</span>
+                        </button>
+                        <div class="relative">
+                            <button class="btn-icon">
+                                <i class="fas fa-ellipsis-v"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="list-item">
+                    <div class="flex items-center mr-3">
+                        <div class="w-12 h-12 bg-gray-700 rounded flex-shrink-0 overflow-hidden">
+                            <img src="https://i.ytimg.com/vi/jNQXAC9IVRw/mqdefault.jpg" alt="视频缩略图">
+                        </div>
+                    </div>
+                    <div class="flex-grow mr-4">
+                        <div class="font-medium mb-1 truncate">电子音乐制作教程 - 从零开始学习音频处理与混音技术</div>
+                        <div class="text-sm text-text-secondary">下载 | B站 | 1:05:22 | 426.7MB</div>
+                        <div class="flex items-center text-xs text-text-secondary mt-1">
+                            <span class="mr-3">完成于 2023-06-10 16:45</span>
+                            <span class="text-error-color">失败</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <button class="btn-icon tooltip">
+                            <i class="fas fa-redo"></i>
+                            <span class="tooltip-text">重新下载</span>
+                        </button>
+                        <button class="btn-icon tooltip">
+                            <i class="fas fa-trash-alt"></i>
+                            <span class="tooltip-text">删除记录</span>
+                        </button>
+                        <div class="relative">
+                            <button class="btn-icon">
+                                <i class="fas fa-ellipsis-v"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="status-bar">
+            <div>总记录: 7 | 下载: 5 | 转换: 2</div>
+            <div class="flex-grow"></div>
+            <div>总下载量: 1.58GB | 总转换量: 106MB</div>
+        </div>
+    </div>
+</body>
+</html> 

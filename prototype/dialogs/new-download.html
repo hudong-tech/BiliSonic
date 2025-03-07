@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新建下载任务</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <div class="dialog-overlay">
+        <div class="dialog">
+            <div class="dialog-header">
+                <div class="dialog-title">新建下载任务</div>
+                <div class="dialog-close">
+                    <i class="fas fa-times"></i>
+                </div>
+            </div>
+            
+            <div class="dialog-body">
+                <div class="form-group">
+                    <label class="form-label">视频链接</label>
+                    <textarea class="form-input h-24 py-2" placeholder="输入视频链接，支持YouTube、B站等平台，每行一个链接可批量下载"></textarea>
+                </div>
+                
+                <div class="mt-4 mb-2">
+                    <div class="flex items-center justify-between">
+                        <div class="font-medium">视频信息</div>
+                        <button class="text-accent-color text-sm">
+                            <i class="fas fa-sync-alt mr-1"></i>解析链接
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="bg-bg-secondary p-3 rounded mb-4">
+                    <div class="flex items-start">
+                        <div class="w-24 h-16 bg-gray-700 rounded flex-shrink-0 overflow-hidden mr-3">
+                            <img src="https://i.ytimg.com/vi/dQw4w9WgXcQ/mqdefault.jpg" alt="视频缩略图">
+                        </div>
+                        <div>
+                            <div class="font-medium mb-1 text-sm">如何高效学习编程 - 专业程序员的建议与技巧</div>
+                            <div class="text-xs text-text-secondary">YouTube | 15:42 | 作者: 编程学习频道</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="form-group">
+                        <label class="form-label">视频质量</label>
+                        <select class="form-select">
+                            <option>最高质量</option>
+                            <option selected>720p (HD)</option>
+                            <option>1080p (Full HD)</option>
+                            <option>480p (SD)</option>
+                            <option>360p (低质量)</option>
+                            <option>仅音频</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">下载后操作</label>
+                        <select class="form-select">
+                            <option>无</option>
+                            <option>自动转换为音频</option>
+                            <option>完成后通知</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">保存位置</label>
+                    <div class="flex">
+                        <input type="text" class="form-input rounded-r-none" value="/Users/username/Downloads" readonly>
+                        <button class="btn btn-secondary rounded-l-none">浏览</button>
+                    </div>
+                </div>
+                
+                <div class="flex items-center mt-2">
+                    <input type="checkbox" id="use-default" class="mr-2" checked>
+                    <label for="use-default" class="text-sm">使用默认设置</label>
+                    <button class="text-accent-color text-sm ml-auto">
+                        <i class="fas fa-cog mr-1"></i>高级选项
+                    </button>
+                </div>
+            </div>
+            
+            <div class="dialog-footer">
+                <button class="btn btn-secondary">取消</button>
+                <button class="btn btn-primary">开始下载</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 

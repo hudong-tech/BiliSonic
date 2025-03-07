@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>视频下载与音频转换工具 - 设置</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <!-- Mac 风格窗口标题栏 -->
+    <div class="title-bar">
+        <div class="title-bar-controls">
+            <div class="window-control close-btn"></div>
+            <div class="window-control minimize-btn"></div>
+            <div class="window-control maximize-btn"></div>
+        </div>
+        <div class="title-bar-title">视频下载与音频转换工具 - 设置</div>
+        <div style="width: 60px;"></div> <!-- 平衡标题栏布局 -->
+    </div>
+
+    <!-- 主内容区 -->
+    <div class="main-content" style="height: calc(100vh - 38px);">
+        <div class="content-header">
+            <div class="text-lg font-semibold">设置</div>
+            <div class="flex items-center gap-3">
+                <button class="btn btn-primary">
+                    <i class="fas fa-save mr-2"></i>保存设置
+                </button>
+                <button class="btn btn-secondary">
+                    <i class="fas fa-undo mr-2"></i>重置
+                </button>
+            </div>
+        </div>
+        
+        <div class="content-body">
+            <!-- 设置分类标签页 -->
+            <div class="flex border-b border-border-color mb-4">
+                <button class="px-4 py-2 font-medium border-b-2 border-accent-color text-accent-color">常规</button>
+                <button class="px-4 py-2 font-medium text-text-secondary">下载</button>
+                <button class="px-4 py-2 font-medium text-text-secondary">转换</button>
+                <button class="px-4 py-2 font-medium text-text-secondary">网络</button>
+                <button class="px-4 py-2 font-medium text-text-secondary">高级</button>
+            </div>
+            
+            <!-- 常规设置 -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                    <h3 class="font-semibold mb-4">应用设置</h3>
+                    
+                    <div class="form-group">
+                        <label class="form-label">界面主题</label>
+                        <select class="form-select">
+                            <option>深色主题</option>
+                            <option>浅色主题</option>
+                            <option>跟随系统</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">语言</label>
+                        <select class="form-select">
+                            <option>简体中文</option>
+                            <option>English</option>
+                            <option>日本語</option>
+                            <option>한국어</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">启动选项</label>
+                        <div class="flex items-center mb-2">
+                            <input type="checkbox" id="start-with-system" class="mr-2">
+                            <label for="start-with-system">开机自动启动</label>
+                        </div>
+                        <div class="flex items-center mb-2">
+                            <input type="checkbox" id="start-minimized" class="mr-2">
+                            <label for="start-minimized">启动时最小化到托盘</label>
+                        </div>
+                        <div class="flex items-center">
+                            <input type="checkbox" id="check-update" class="mr-2" checked>
+                            <label for="check-update">启动时检查更新</label>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">关闭行为</label>
+                        <select class="form-select">
+                            <option>最小化到托盘</option>
+                            <option>直接退出</option>
+                            <option>询问</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="font-semibold mb-4">文件管理</h3>
+                    
+                    <div class="form-group">
+                        <label class="form-label">默认下载位置</label>
+                        <div class="flex">
+                            <input type="text" class="form-input rounded-r-none" value="/Users/username/Downloads" readonly>
+                            <button class="btn btn-secondary rounded-l-none">浏览</button>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">默认音频保存位置</label>
+                        <div class="flex">
+                            <input type="text" class="form-input rounded-r-none" value="/Users/username/Music" readonly>
+                            <button class="btn btn-secondary rounded-l-none">浏览</button>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">文件命名规则</label>
+                        <select class="form-select mb-2">
+                            <option>原始标题</option>
+                            <option>标题 - 作者</option>
+                            <option>作者 - 标题</option>
+                            <option>自定义格式</option>
+                        </select>
+                        <input type="text" class="form-input" value="{title} - {author} [{date}]" placeholder="自定义格式">
+                        <div class="text-xs text-text-secondary mt-1">
+                            可用变量: {title}, {author}, {date}, {id}, {quality}
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">存储管理</label>
+                        <div class="flex items-center mb-2">
+                            <input type="checkbox" id="auto-clean" class="mr-2" checked>
+                            <label for="auto-clean">自动清理临时文件</label>
+                        </div>
+                        <div class="flex items-center">
+                            <input type="checkbox" id="keep-original" class="mr-2">
+                            <label for="keep-original">转换后保留原始视频文件</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="font-semibold mb-4">通知设置</h3>
+                    
+                    <div class="form-group">
+                        <div class="flex items-center mb-2">
+                            <input type="checkbox" id="notify-download" class="mr-2" checked>
+                            <label for="notify-download">下载完成时通知</label>
+                        </div>
+                        <div class="flex items-center mb-2">
+                            <input type="checkbox" id="notify-convert" class="mr-2" checked>
+                            <label for="notify-convert">转换完成时通知</label>
+                        </div>
+                        <div class="flex items-center mb-2">
+                            <input type="checkbox" id="notify-error" class="mr-2" checked>
+                            <label for="notify-error">发生错误时通知</label>
+                        </div>
+                        <div class="flex items-center">
+                            <input type="checkbox" id="play-sound" class="mr-2" checked>
+                            <label for="play-sound">播放通知声音</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="font-semibold mb-4">性能设置</h3>
+                    
+                    <div class="form-group">
+                        <label class="form-label">同时下载任务数</label>
+                        <select class="form-select">
+                            <option>1</option>
+                            <option>2</option>
+                            <option selected>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                            <option>不限制</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">同时转换任务数</label>
+                        <select class="form-select">
+                            <option>1</option>
+                            <option selected>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>不限制</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">CPU 使用限制</label>
+                        <div class="flex items-center">
+                            <input type="range" min="10" max="100" value="80" class="w-full mr-2">
+                            <span>80%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="status-bar">
+            <div>版本: 1.0.0</div>
+            <div class="flex-grow"></div>
+            <div class="text-accent-color cursor-pointer">检查更新</div>
+        </div>
+    </div>
+</body>
+</html> 

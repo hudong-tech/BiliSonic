@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>视频下载与音频转换工具 - 帮助</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <!-- Mac 风格窗口标题栏 -->
+    <div class="title-bar">
+        <div class="title-bar-controls">
+            <div class="window-control close-btn"></div>
+            <div class="window-control minimize-btn"></div>
+            <div class="window-control maximize-btn"></div>
+        </div>
+        <div class="title-bar-title">视频下载与音频转换工具 - 帮助</div>
+        <div style="width: 60px;"></div> <!-- 平衡标题栏布局 -->
+    </div>
+
+    <!-- 主内容区 -->
+    <div class="main-content" style="height: calc(100vh - 38px);">
+        <div class="content-header">
+            <div class="text-lg font-semibold">帮助中心</div>
+            <div class="flex items-center gap-3">
+                <div class="relative">
+                    <input type="text" class="form-input h-9 pl-9" placeholder="搜索帮助...">
+                    <i class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-text-secondary"></i>
+                </div>
+                <button class="btn btn-secondary">
+                    <i class="fas fa-envelope mr-2"></i>联系支持
+                </button>
+            </div>
+        </div>
+        
+        <div class="flex h-full">
+            <!-- 左侧导航 -->
+            <div class="w-64 border-r border-border-color overflow-y-auto">
+                <div class="p-4">
+                    <div class="mb-4">
+                        <div class="font-medium mb-2">入门指南</div>
+                        <div class="text-sm pl-2 py-1 text-accent-color border-l-2 border-accent-color">
+                            快速开始
+                        </div>
+                        <div class="text-sm pl-2 py-1 text-text-secondary">
+                            界面介绍
+                        </div>
+                        <div class="text-sm pl-2 py-1 text-text-secondary">
+                            基本操作
+                        </div>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <div class="font-medium mb-2">视频下载</div>
+                        <div class="text-sm pl-2 py-1 text-text-secondary">
+                            支持的平台
+                        </div>
+                        <div class="text-sm pl-2 py-1 text-text-secondary">
+                            下载设置
+                        </div>
+                        <div class="text-sm pl-2 py-1 text-text-secondary">
+                            批量下载
+                        </div>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <div class="font-medium mb-2">音频转换</div>
+                        <div class="text-sm pl-2 py-1 text-text-secondary">
+                            支持的格式
+                        </div>
+                        <div class="text-sm pl-2 py-1 text-text-secondary">
+                            转换设置
+                        </div>
+                        <div class="text-sm pl-2 py-1 text-text-secondary">
+                            音频质量
+                        </div>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <div class="font-medium mb-2">常见问题</div>
+                        <div class="text-sm pl-2 py-1 text-text-secondary">
+                            下载问题
+                        </div>
+                        <div class="text-sm pl-2 py-1 text-text-secondary">
+                            转换问题
+                        </div>
+                        <div class="text-sm pl-2 py-1 text-text-secondary">
+                            性能问题
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <div class="font-medium mb-2">其他</div>
+                        <div class="text-sm pl-2 py-1 text-text-secondary">
+                            快捷键
+                        </div>
+                        <div class="text-sm pl-2 py-1 text-text-secondary">
+                            隐私政策
+                        </div>
+                        <div class="text-sm pl-2 py-1 text-text-secondary">
+                            关于我们
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 右侧内容 -->
+            <div class="flex-grow overflow-y-auto p-6">
+                <h1 class="text-2xl font-bold mb-4">快速开始</h1>
+                
+                <div class="mb-6">
+                    <h2 class="text-xl font-semibold mb-3">欢迎使用视频下载与音频转换工具</h2>
+                    <p class="mb-3">
+                        本应用可以帮助您从各大视频平台下载视频，并将其转换为MP3等音频格式，方便您在各种设备上离线收听。
+                        以下是快速入门的步骤，帮助您快速上手使用本应用。
+                    </p>
+                </div>
+                
+                <div class="mb-6">
+                    <h3 class="text-lg font-semibold mb-2">1. 下载视频</h3>
+                    <div class="bg-bg-secondary p-4 rounded mb-3">
+                        <ol class="list-decimal pl-5 space-y-2">
+                            <li>点击左侧导航栏中的"下载管理"</li>
+                            <li>点击顶部工具栏中的"新建下载"按钮</li>
+                            <li>在弹出的对话框中粘贴视频链接（支持YouTube、B站等平台）</li>
+                            <li>点击"解析链接"按钮获取视频信息</li>
+                            <li>选择合适的视频质量和保存位置</li>
+                            <li>点击"开始下载"按钮开始下载任务</li>
+                        </ol>
+                    </div>
+                    <div class="flex items-center justify-center mb-3">
+                        <img src="https://i.imgur.com/XYZ123.png" alt="下载视频示例" class="rounded border border-border-color">
+                    </div>
+                    <p class="text-sm text-text-secondary">
+                        您也可以直接将视频链接拖放到应用中，或者使用复制链接后的自动检测功能快速创建下载任务。
+                    </p>
+                </div>
+                
+                <div class="mb-6">
+                    <h3 class="text-lg font-semibold mb-2">2. 转换为音频</h3>
+                    <div class="bg-bg-secondary p-4 rounded mb-3">
+                        <ol class="list-decimal pl-5 space-y-2">
+                            <li>下载完成后，选择要转换的视频</li>
+                            <li>点击"转换为音频"按钮</li>
+                            <li>在弹出的对话框中选择输出格式（MP3、AAC、FLAC等）</li>
+                            <li>选择音频质量和其他设置</li>
+                            <li>点击"开始转换"按钮开始转换任务</li>
+                        </ol>
+                    </div>
+                    <div class="flex items-center justify-center mb-3">
+                        <img src="https://i.imgur.com/ABC456.png" alt="转换音频示例" class="rounded border border-border-color">
+                    </div>
+                    <p class="text-sm text-text-secondary">
+                        您也可以直接在下载设置中选择"自动转换为音频"选项，下载完成后会自动进行转换。
+                    </p>
+                </div>
+                
+                <div class="mb-6">
+                    <h3 class="text-lg font-semibold mb-2">3. 批量操作</h3>
+                    <p class="mb-3">
+                        本应用支持批量下载和批量转换，提高您的工作效率：
+                    </p>
+                    <div class="bg-bg-secondary p-4 rounded mb-3">
+                        <ul class="list-disc pl-5 space-y-2">
+                            <li>批量下载：在新建下载对话框中每行输入一个链接</li>
+                            <li>批量转换：在转换管理中选择多个文件，然后点击"开始转换"</li>
+                            <li>使用多选框选择多个任务进行批量操作（暂停、取消、删除等）</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-2">4. 查看历史记录</h3>
+                    <p class="mb-3">
+                        您可以在"历史记录"页面查看所有已完成的下载和转换任务，方便您重新下载或查找文件位置。
+                    </p>
+                    <div class="bg-bg-secondary p-4 rounded">
+                        <ul class="list-disc pl-5 space-y-2">
+                            <li>点击左侧导航栏中的"历史记录"</li>
+                            <li>使用顶部的标签页切换查看全部、下载或转换记录</li>
+                            <li>使用搜索框查找特定记录</li>
+                            <li>点击操作按钮可以打开文件夹、重新下载或删除记录</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="mt-8 pt-4 border-t border-border-color">
+                    <div class="text-center">
+                        <p class="mb-2">这篇指南是否对您有帮助？</p>
+                        <div class="flex justify-center gap-4">
+                            <button class="btn btn-secondary">
+                                <i class="fas fa-thumbs-up mr-2"></i>有帮助
+                            </button>
+                            <button class="btn btn-secondary">
+                                <i class="fas fa-thumbs-down mr-2"></i>没帮助
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="status-bar">
+            <div>版本: 1.0.0</div>
+            <div class="flex-grow"></div>
+            <div>最后更新: 2023-06-15</div>
+        </div>
+    </div>
+</body>
+</html> 
