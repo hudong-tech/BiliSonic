@@ -1,0 +1,43 @@
+:root {
+  /* 深色主题 */
+  --dark-bg-primary: #2B2D30;
+  --dark-bg-secondary: #3C3F41;
+  --dark-bg-tertiary: #4E5254;
+  --dark-text-primary: #FFFFFF;
+  --dark-text-secondary: #A7A7A7;
+  --dark-border: #555555;
+
+  /* 浅色主题 */
+  --light-bg-primary: #F5F5F5;
+  --light-bg-secondary: #FFFFFF;
+  --light-bg-tertiary: #E8E8E8;
+  --light-text-primary: #2B2D30;
+  --light-text-secondary: #6C6C6C;
+  --light-border: #D1D1D1;
+
+  /* 功能色 */
+  --accent-color: #4A89DC;
+  --success-color: #28A745;
+  --warning-color: #FFC107;
+  --error-color: #DC3545;
+}
+
+/* 深色主题 */
+:root[data-theme='dark'] {
+  --bg-primary: var(--dark-bg-primary);
+  --bg-secondary: var(--dark-bg-secondary);
+  --bg-tertiary: var(--dark-bg-tertiary);
+  --text-primary: var(--dark-text-primary);
+  --text-secondary: var(--dark-text-secondary);
+  --border-color: var(--dark-border);
+}
+
+/* 浅色主题 */
+:root[data-theme='light'] {
+  --bg-primary: var(--light-bg-primary);
+  --bg-secondary: var(--light-bg-secondary);
+  --bg-tertiary: var(--light-bg-tertiary);
+  --text-primary: var(--light-text-primary);
+  --text-secondary: var(--light-text-secondary);
+  --border-color: var(--light-border);
+}

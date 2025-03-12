@@ -8,6 +8,8 @@ import {
   SettingOutlined,
   QuestionCircleOutlined
 } from '@ant-design/icons'
+import TitleBar from '../TitleBar/TitleBar'
+import Logo from '../Logo/Logo'
 import '../../styles/layout.css'
 
 interface MainLayoutProps {
@@ -25,6 +27,7 @@ const MainLayout = ({
 }: MainLayoutProps): JSX.Element => {
   const navigate = useNavigate()
   const location = useLocation()
+  const [siderCollapsed, setSiderCollapsed] = useState(false)
 
   const menuItems = [
     {
@@ -67,45 +70,57 @@ const MainLayout = ({
   }
 
   return (
-    <div className="app-container">
-      {/* 侧边导航栏 */}
-      <div className="sidebar">
-        <div className="sidebar-header">
-          <div className="app-logo">
-            <span className="app-name">BiliSonic</span>
+    <div className="root-container">
+      <TitleBar />
+      <div className="app-container">
+        {/* 侧边导航栏 */}
+        <div className={`sidebar ${siderCollapsed ? 'sidebar-collapsed' : ''}`}>
+          <div className="sidebar-header">
+            <div className="app-logo">
+              <Logo size={28} color="#FFFFFF" />
+              <span className="app-name">BiliSonic</span>
+            </div>
+          </div>
+          <div className="sidebar-content">
+            <Menu
+              mode="inline"
+              selectedKeys={[location.pathname]}
+              items={menuItems.slice(0, 3)}
+              onClick={({ key }) => handleMenuClick(key)}
+              className="sidebar-menu"
+              inlineCollapsed={siderCollapsed}
+            />
+          </div>
+          <div className="sidebar-footer">
+            <Menu
+              mode="inline"
+              selectedKeys={[location.pathname]}
+              items={menuItems.slice(3)}
+              onClick={({ key }) => handleMenuClick(key)}
+              className="sidebar-menu"
+              inlineCollapsed={siderCollapsed}
+            />
           </div>
         </div>
-        <div className="sidebar-content">
-          <Menu
-            mode="inline"
-            selectedKeys={[location.pathname]}
-            items={menuItems.slice(0, 3)}
-            onClick={({ key }) => handleMenuClick(key)}
-            className="sidebar-menu"
-          />
-        </div>
-        <div className="sidebar-footer">
-          <Menu
-            mode="inline"
-            selectedKeys={[location.pathname]}
-            items={menuItems.slice(3)}
-            onClick={({ key }) => handleMenuClick(key)}
-            className="sidebar-menu"
-          />
-        </div>
-      </div>
 
-      {/* 中央内容区 */}
-      <div className="main-content">
-        {children}
-      </div>
-
-      {/* 右侧详情面板 */}
-      {showDetailPanel && (
-        <div className="details-panel">
-          {detailPanel}
+        {/* 中央内容区 */}
+        <div className="main-content">
+          {children}
+          {/* 状态栏 */}
+          <div className="status-bar">
+            <div>活动任务: 2 | 已完成: 1 | 错误: 1</div>
+            <div className="flex-grow"></div>
+            <div>CPU: 12% | 内存: 245MB</div>
+          </div>
         </div>
-      )}
+
+        {/* 右侧详情面板 */}
+        {showDetailPanel && (
+          <div className="details-panel">
+            {detailPanel}
+          </div>
+        )}
+      </div>
     </div>
   )
 }
