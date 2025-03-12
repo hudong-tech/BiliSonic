@@ -1,0 +1,246 @@
+/* 全局样式 */
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #2B2D30;
+  color: #FFFFFF;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+#root {
+  width: 100%;
+  height: 100%;
+}
+
+/* 主应用容器 */
+.app-container {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  background-color: #2B2D30;
+}
+
+/* 侧边导航栏 */
+.sidebar {
+  width: 200px;
+  background-color: #2B2D30;
+  border-right: 1px solid #555555;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+}
+
+.sidebar-header {
+  padding: 16px;
+  border-bottom: 1px solid #555555;
+}
+
+.app-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.app-name {
+  font-size: 18px;
+  font-weight: bold;
+  color: #4A89DC;
+}
+
+.sidebar-content {
+  flex-grow: 1;
+  overflow-y: auto;
+}
+
+.sidebar-footer {
+  border-top: 1px solid #555555;
+}
+
+.sidebar-menu {
+  background-color: transparent;
+  border-right: none;
+}
+
+.sidebar-menu .ant-menu-item {
+  margin: 0;
+  height: 48px;
+  line-height: 48px;
+  color: #A7A7A7;
+}
+
+.sidebar-menu .ant-menu-item:hover {
+  color: #FFFFFF;
+  background-color: #3C3F41;
+}
+
+.sidebar-menu .ant-menu-item-selected {
+  color: #4A89DC;
+  background-color: rgba(74, 137, 220, 0.1);
+  border-left: 3px solid #4A89DC;
+}
+
+.sidebar-menu .ant-menu-item-selected .anticon {
+  color: #4A89DC;
+}
+
+.nav-icon {
+  margin-right: 12px;
+  font-size: 16px;
+}
+
+/* 主内容区 */
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: #2B2D30;
+  overflow: hidden;
+  position: relative;
+}
+
+.content-header {
+  padding: 16px 24px;
+  border-bottom: 1px solid #555555;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #2B2D30;
+}
+
+.content-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 24px;
+  background-color: #2B2D30;
+}
+
+/* 详情面板 */
+.details-panel {
+  width: 300px;
+  background-color: #2B2D30;
+  border-left: 1px solid #555555;
+  overflow-y: auto;
+  flex-shrink: 0;
+}
+
+/* 加载状态 */
+.loading-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #2B2D30;
+  z-index: 1000;
+}
+
+/* 通用内容页面样式 */
+.page-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background-color: #2B2D30;
+}
+
+.page-header {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.page-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #FFFFFF;
+  margin: 0;
+}
+
+.page-content {
+  flex: 1;
+  overflow-y: auto;
+}
+
+/* Ant Design 组件样式覆盖 */
+.ant-menu {
+  background-color: transparent !important;
+  border-right: none !important;
+}
+
+.ant-menu-item {
+  margin: 0 !important;
+  height: 48px !important;
+  line-height: 48px !important;
+  color: #A7A7A7 !important;
+}
+
+.ant-menu-item:hover {
+  color: #FFFFFF !important;
+  background-color: #3C3F41 !important;
+}
+
+.ant-menu-item-selected {
+  color: #4A89DC !important;
+  background-color: rgba(74, 137, 220, 0.1) !important;
+  border-left: 3px solid #4A89DC !important;
+}
+
+.ant-menu-item-selected .anticon {
+  color: #4A89DC !important;
+}
+
+.ant-btn-primary {
+  background-color: #4A89DC !important;
+  border-color: #4A89DC !important;
+}
+
+.ant-btn-primary:hover {
+  background-color: #3A79CC !important;
+  border-color: #3A79CC !important;
+}
+
+.ant-select-dropdown {
+  background-color: #2B2D30 !important;
+  border: 1px solid #555555 !important;
+}
+
+.ant-select-item {
+  color: #A7A7A7 !important;
+}
+
+.ant-select-item-option-selected {
+  background-color: rgba(74, 137, 220, 0.1) !important;
+  color: #4A89DC !important;
+}
+
+.ant-select-item-option-active {
+  background-color: #3C3F41 !important;
+}
+
+.ant-divider {
+  border-color: #555555 !important;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 60px;
+  }
+
+  .app-name {
+    display: none;
+  }
+
+  .content-header {
+    padding: 12px 16px;
+  }
+
+  .content-body {
+    padding: 16px;
+  }
+}
