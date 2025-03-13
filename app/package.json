@@ -1,7 +1,8 @@
 {
   "name": "bilisonic",
   "version": "1.0.0",
-  "description": "An Electron application with React and TypeScript",
+  "description": "BiliSonic - 哔哩哔哩音频下载工具",
+  "productName": "BiliSonic",
   "main": "./out/main/index.js",
   "author": "example.com",
   "homepage": "https://electron-vite.org",
