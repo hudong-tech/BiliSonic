@@ -43,7 +43,9 @@ const ipcAPI = {
 const api = {
   // 测试API
   test: {
-    ping: () => ipcRenderer.invoke('ping-async')
+    ping: () => ipcRenderer.invoke('ping-async'),
+    getAppName: () => ipcRenderer.invoke('test:get-app-name'),
+    getWindowInfo: () => ipcRenderer.invoke('test:get-window-info')
   },
 
   // 版本信息

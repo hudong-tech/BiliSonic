@@ -5,21 +5,34 @@ import icon from '../../resources/icon.png?asset'
 import { setupIpcHandlers } from './ipc'
 
 function createWindow(): void {
+  // 设置应用名称
+  app.name = 'BiliSonic'
+
   // Create the browser window.
   const mainWindow = new BrowserWindow({
     width: 1440,
     height: 768,
     show: false,
     autoHideMenuBar: true,
+    // 显示系统标题栏
+    frame: true, // 使用系统窗口框架
+    titleBarStyle: 'default', // 使用默认标题栏样式，在所有平台上显示完整标题栏
+    title: 'BiliSonic', // 设置窗口标题
     ...(process.platform === 'linux' ? { icon } : {}),
     webPreferences: {
       preload: join(__dirname, '../preload/index.js'),
-      sandbox: false
+      sandbox: false,
+      contextIsolation: true
     }
   })
 
+  // 确保标题设置正确
+  mainWindow.setTitle('BiliSonic-2')
+
   mainWindow.on('ready-to-show', () => {
     mainWindow.show()
+    // 再次确保标题设置正确
+    mainWindow.setTitle('BiliSonic')
   })
 
   mainWindow.webContents.setWindowOpenHandler((details) => {
@@ -46,7 +59,7 @@ function createWindow(): void {
 // Some APIs can only be used after this event occurs.
 app.whenReady().then(() => {
   // Set app user model id for windows
-  electronApp.setAppUserModelId('com.electron')
+  electronApp.setAppUserModelId('com.bilisonic.app')
 
   // Default open or close DevTools by F12 in development
   // and ignore CommandOrControl + R in production.

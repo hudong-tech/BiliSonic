@@ -1,5 +1,5 @@
 appId: com.electron.app
-productName: bilisonic
+productName: BiliSonic
 directories:
   buildResources: build
 files:
