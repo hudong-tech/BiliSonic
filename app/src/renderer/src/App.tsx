@@ -7,6 +7,7 @@ import ConversionPage from './components/pages/ConversionPage'
 import HistoryPage from './components/pages/HistoryPage'
 import SettingsPage from './components/pages/SettingsPage'
 import HelpPage from './components/pages/HelpPage'
+import TestPage from './pages/TestPage'
 import { useUIStore } from './stores/ui-store'
 import { useSettingsStore } from './stores/settings-store'
 
@@ -52,6 +53,9 @@ function App(): JSX.Element {
     setShowDetailPanel(false)
     setDetailPanelContent(null)
   }
+
+  // 检查是否是测试路径
+  const isTestPath = window.location.pathname.includes('/test')
 
   return (
     <ConfigProvider
@@ -102,7 +106,6 @@ function App(): JSX.Element {
             colorTextHeading: '#FFFFFF',
             colorFillAlter: '#4E5254',
             colorFillContent: '#4E5254',
-            colorBgHover: '#4E5254',
           },
           Input: {
             colorBgContainer: '#4E5254',
@@ -114,44 +117,49 @@ function App(): JSX.Element {
       }}
     >
       <AntdApp style={{ height: '100vh', width: '100vw', overflow: 'hidden' }}>
-        <MainLayout
-          loading={loading}
-          showDetailPanel={showDetailPanel}
-          detailPanel={detailPanelContent}
-        >
-          <Routes>
-            <Route
-              path="/download"
-              element={
-                <DownloadPage
-                  showDetail={showDetail}
-                  hideDetail={hideDetail}
-                />
-              }
-            />
-            <Route
-              path="/conversion"
-              element={
-                <ConversionPage
-                  showDetail={showDetail}
-                  hideDetail={hideDetail}
-                />
-              }
-            />
-            <Route
-              path="/history"
-              element={
-                <HistoryPage
-                  showDetail={showDetail}
-                  hideDetail={hideDetail}
-                />
-              }
-            />
-            <Route path="/settings" element={<SettingsPage />} />
-            <Route path="/help" element={<HelpPage />} />
-            <Route path="/" element={<Navigate to="/download" replace />} />
-          </Routes>
-        </MainLayout>
+        {isTestPath ? (
+          <TestPage />
+        ) : (
+          <MainLayout
+            loading={loading}
+            showDetailPanel={showDetailPanel}
+            detailPanel={detailPanelContent}
+          >
+            <Routes>
+              <Route
+                path="/download"
+                element={
+                  <DownloadPage
+                    showDetail={showDetail}
+                    hideDetail={hideDetail}
+                  />
+                }
+              />
+              <Route
+                path="/conversion"
+                element={
+                  <ConversionPage
+                    showDetail={showDetail}
+                    hideDetail={hideDetail}
+                  />
+                }
+              />
+              <Route
+                path="/history"
+                element={
+                  <HistoryPage
+                    showDetail={showDetail}
+                    hideDetail={hideDetail}
+                  />
+                }
+              />
+              <Route path="/settings" element={<SettingsPage />} />
+              <Route path="/help" element={<HelpPage />} />
+              <Route path="/test" element={<TestPage />} />
+              <Route path="/" element={<Navigate to="/download" replace />} />
+            </Routes>
+          </MainLayout>
+        )}
       </AntdApp>
     </ConfigProvider>
   )

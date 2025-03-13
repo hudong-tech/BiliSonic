@@ -6,7 +6,8 @@ import {
   AudioOutlined,
   HistoryOutlined,
   SettingOutlined,
-  QuestionCircleOutlined
+  QuestionCircleOutlined,
+  BugOutlined
 } from '@ant-design/icons'
 import TitleBar from '../TitleBar/TitleBar'
 import Logo from '../Logo/Logo'
@@ -54,6 +55,11 @@ const MainLayout = ({
       key: '/help',
       icon: <QuestionCircleOutlined className="nav-icon" />,
       label: '帮助'
+    },
+    {
+      key: '/test',
+      icon: <BugOutlined className="nav-icon" />,
+      label: '测试页面'
     }
   ]
 
