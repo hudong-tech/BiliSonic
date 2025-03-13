@@ -11,6 +11,7 @@ import {
 } from '@ant-design/icons'
 import TitleBar from '../TitleBar/TitleBar'
 import Logo from '../Logo/Logo'
+import StatusBar from './StatusBar'
 import '../../styles/layout.css'
 
 interface MainLayoutProps {
@@ -67,6 +68,13 @@ const MainLayout = ({
     navigate(key)
   }
 
+  // 判断当前页面是否显示状态栏
+  const shouldShowStatusBar = () => {
+    // 在设置、帮助和测试页面不显示状态栏
+    const hiddenStatusBarPages = ['/settings', '/help', '/test']
+    return !hiddenStatusBarPages.includes(location.pathname)
+  }
+
   if (loading) {
     return (
       <div className="loading-container">
@@ -112,12 +120,16 @@ const MainLayout = ({
         {/* 中央内容区 */}
         <div className="main-content">
           {children}
-          {/* 状态栏 */}
-          <div className="status-bar">
-            <div>活动任务: 2 | 已完成: 1 | 错误: 1</div>
-            <div className="flex-grow"></div>
-            <div>CPU: 12% | 内存: 245MB</div>
-          </div>
+          {/* 状态栏 - 仅在特定页面显示 */}
+          {shouldShowStatusBar() && (
+            <StatusBar
+              activeTasks={2}
+              completedTasks={1}
+              errorTasks={1}
+              initialCpuUsage={12}
+              initialMemoryUsage="245MB"
+            />
+          )}
         </div>
 
         {/* 右侧详情面板 */}

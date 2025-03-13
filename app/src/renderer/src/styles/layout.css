@@ -84,6 +84,12 @@ html, body {
   position: relative;
 }
 
+/* 内容区域将占用除状态栏外的所有空间 */
+.main-content > *:not(.status-bar) {
+  flex: 1;
+  overflow: auto;
+}
+
 /* 详情面板 */
 .details-panel {
   width: 300px;
@@ -102,6 +108,11 @@ html, body {
   padding: 0 16px;
   font-size: 12px;
   color: #AAAAAA;
+  flex-shrink: 0; /* 防止状态栏被压缩 */
+  position: sticky;
+  bottom: 0;
+  width: 100%;
+  z-index: 10;
 }
 
 .flex-grow {
