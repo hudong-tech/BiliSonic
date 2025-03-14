@@ -8,15 +8,36 @@ html, body {
   height: 100%;
   width: 100%;
   overflow: hidden;
+  /* 确保没有默认边距 */
+  box-sizing: border-box;
+}
+
+/* 确保#root元素填充整个视口 */
+#root {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; /* 防止溢出 */
+  /* 确保没有默认边距 */
+  margin: 0;
+  padding: 0;
 }
 
 /* 根容器 */
 .root-container {
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  height: 100%; /* 改为100%而不是100vh，避免在某些浏览器中的计算问题 */
   width: 100%;
   background-color: #18191C;
+  /* 移除可能导致底部出现间隙的边距和填充 */
+  margin: 0;
+  padding: 0;
+  /* 确保子元素不会溢出容器 */
+  box-sizing: border-box;
+  overflow: hidden;
+  position: relative; /* 使用相对定位，适应系统标题栏 */
 }
 
 /* 应用容器 */
@@ -25,6 +46,15 @@ html, body {
   flex: 1;
   overflow: hidden;
   position: relative;
+  /* 确保应用区域填充整个可用空间 */
+  min-height: 0;
+  /* 确保容器不会被挤压 */
+  flex-shrink: 0;
+  /* 确保容器能够扩展 */
+  flex-grow: 1;
+  /* 确保没有默认边距 */
+  margin: 0;
+  padding: 0;
 }
 
 /* 侧边栏 */
@@ -36,6 +66,8 @@ html, body {
   border-right: 1px solid rgba(255, 255, 255, 0.1);
   transition: width 0.3s;
   overflow: hidden;
+  /* 确保侧边栏不会被挤压 */
+  flex-shrink: 0;
 }
 
 /* 侧边栏头部 */
@@ -82,12 +114,23 @@ html, body {
   overflow: hidden;
   background-color: #18191C;
   position: relative;
+  /* 确保主内容区域填充可用空间 */
+  min-height: 0;
+  /* 确保内容区域能够扩展 */
+  flex-grow: 1;
+  /* 防止内容区域被挤压 */
+  flex-basis: 0;
+  /* 确保没有默认边距 */
+  margin: 0;
+  padding: 0;
 }
 
 /* 内容区域将占用除状态栏外的所有空间 */
 .main-content > *:not(.status-bar) {
   flex: 1;
   overflow: auto;
+  /* 确保内容不会溢出 */
+  box-sizing: border-box;
 }
 
 /* 详情面板 */
@@ -96,6 +139,8 @@ html, body {
   background-color: #333333;
   border-left: 1px solid rgba(255, 255, 255, 0.1);
   overflow-y: auto;
+  /* 确保详情面板不会被挤压 */
+  flex-shrink: 0;
 }
 
 /* 状态栏 */
@@ -113,6 +158,10 @@ html, body {
   bottom: 0;
   width: 100%;
   z-index: 10;
+  /* 确保状态栏底部没有间隙 */
+  margin-bottom: 0;
+  /* 确保状态栏不会被挤压 */
+  min-height: 30px;
 }
 
 .flex-grow {
@@ -218,16 +267,18 @@ html, body {
   border-right: none !important;
 }
 
-/* 自定义标题栏样式，确保与系统标题栏不冲突 */
+/* 自定义标题栏样式 - 当使用系统标题栏时不需要 */
 .title-bar {
-  background-color: #333333 !important; /* 与系统标题栏颜色一致 */
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  display: none; /* 隐藏自定义标题栏 */
 }
 
 /* 针对macOS的特殊样式 */
 @media screen and (-webkit-device-pixel-ratio: 1.5), screen and (device-pixel-ratio: 1.5) {
   /* 为macOS的标题栏留出空间 */
   .root-container {
-    padding-top: 0; /* 不需要额外的padding，因为使用了hiddenInset样式 */
+    /* 适配macOS标题栏，确保没有额外空间 */
+    padding-top: 0;
+    /* 确保填充整个窗口 */
+    height: 100%;
   }
 }

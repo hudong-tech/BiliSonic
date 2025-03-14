@@ -1,4 +1,4 @@
-import { useState, ReactNode } from 'react'
+import { useState, ReactNode, useEffect, useRef } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
 import { Menu, Spin } from 'antd'
 import {
@@ -9,7 +9,6 @@ import {
   QuestionCircleOutlined,
   BugOutlined
 } from '@ant-design/icons'
-import TitleBar from '../TitleBar/TitleBar'
 import Logo from '../Logo/Logo'
 import StatusBar from './StatusBar'
 import '../../styles/layout.css'
@@ -30,6 +29,60 @@ const MainLayout = ({
   const navigate = useNavigate()
   const location = useLocation()
   const [siderCollapsed, setSiderCollapsed] = useState(false)
+  const [windowDimensions, setWindowDimensions] = useState({
+    width: window.innerWidth,
+    height: window.innerHeight
+  })
+
+  // 添加引用来存储DOM元素
+  const rootContainerRef = useRef<HTMLDivElement>(null)
+  const appContainerRef = useRef<HTMLDivElement>(null)
+  const mainContentRef = useRef<HTMLDivElement>(null)
+
+  // 监听窗口大小变化
+  useEffect(() => {
+    const handleResize = () => {
+      const newWidth = window.innerWidth
+      const newHeight = window.innerHeight
+
+      // 更新窗口尺寸状态
+      setWindowDimensions({
+        width: newWidth,
+        height: newHeight
+      })
+    }
+
+    // 监听浏览器窗口大小变化
+    window.addEventListener('resize', handleResize)
+
+    // 监听来自主进程的resize事件
+    if (window.electron?.ipcRenderer) {
+      window.electron.ipcRenderer.on('window-resize', handleResize)
+    }
+
+    return () => {
+      window.removeEventListener('resize', handleResize)
+      // 清理ipcRenderer监听器
+      if (window.electron?.ipcRenderer) {
+        window.electron.ipcRenderer.removeAllListeners('window-resize')
+      }
+    }
+  }, [])
+
+  // 监听窗口准备就绪事件
+  useEffect(() => {
+    if (window.electron?.ipcRenderer) {
+      window.electron.ipcRenderer.on('window-ready', () => {})
+      window.electron.ipcRenderer.on('window-focus', () => {})
+    }
+
+    return () => {
+      if (window.electron?.ipcRenderer) {
+        window.electron.ipcRenderer.removeAllListeners('window-ready')
+        window.electron.ipcRenderer.removeAllListeners('window-focus')
+      }
+    }
+  }, [])
 
   const menuItems = [
     {
@@ -84,9 +137,8 @@ const MainLayout = ({
   }
 
   return (
-    <div className="root-container">
-      <TitleBar />
-      <div className="app-container">
+    <div className="root-container" ref={rootContainerRef}>
+      <div className="app-container" ref={appContainerRef}>
         {/* 侧边导航栏 */}
         <div className={`sidebar ${siderCollapsed ? 'sidebar-collapsed' : ''}`}>
           <div className="sidebar-header">
@@ -118,7 +170,7 @@ const MainLayout = ({
         </div>
 
         {/* 中央内容区 */}
-        <div className="main-content">
+        <div className="main-content" ref={mainContentRef}>
           {children}
           {/* 状态栏 - 仅在特定页面显示 */}
           {shouldShowStatusBar() && (
